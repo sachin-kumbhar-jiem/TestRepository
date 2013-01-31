@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+  <title>CASEC 環境チェック</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="css/import.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery-1.8.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/os.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/browser.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/casecplayer.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/checkcookie.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/checkcasec.js" charset="UTF-8"></script>
+
+  <script type="text/javascript">
+  $(function(){
+     var casecCheck = new CasecCheck();
+    try{
+		$('#os-name').text(casecCheck.resultList['os'].name);
+		$('#os-result').text(casecCheck.resultList['os'].resultMessage());
+	}catch(e){}
+    try{
+		$('#browser-name').text(casecCheck.resultList['browser'].name);
+		$('#browser-result').text(casecCheck.resultList['browser'].resultMessage());
+	}catch(e){}
+    try{
+	    $('#player-name').text(casecCheck.resultList['player'].name);
+		$('#player-result').text(casecCheck.resultList['player'].resultMessage());
+	}catch(e){}
+    try{
+		$('#js-name').text(casecCheck.resultList['javascript'].name);
+		$('#js-result').text(casecCheck.resultList['javascript'].resultMessage());
+	}catch(e){}
+    try{
+		$('#cookie-name').text(casecCheck.resultList['cookie'].name);
+		$('#cookie-result').text(casecCheck.resultList['cookie'].resultMessage());
+	}catch(e){}
+	
+	if (casecCheck.totalResult==true){
+		$('#result-message-ng').hide();
+		$('#button-back').hide();
+	}else{
+		$('#result-message-success').hide();
+		$('#button-next').hide();
+		
+	}
+	
+	$("[id$='-result']").each(function(){
+		if($(this).text()=="NG"){
+			$(this).wrapInner("<strong class='col1'></strong>");
+		}
+	});
+	
+	//ヘルプの追加
+	if($('#os-result').text()=="NG"){
+		$('#os-result').wrapInner("<a href='error_os.html'></a>");
+	}
+	if($('#browser-result').text()=="NG"){
+		$('#browser-result').append("&nbsp;<a href='error_browser.html'><img src='img/check-help.gif'/></a>");
+	}
+	if($('#player-result').text()=="NG"){
+		$('#player-result').append("&nbsp;<a href='error_sound_software.html'><img src='img/check-help.gif'/></a>");
+	}
+	if($('#cookie-result').text()=="NG"){
+		$('#cookie-result').append("&nbsp;<a href='error_cookie.html'><img src='img/check-help.gif'/></a>");
+	}
+
+
+
+  });
+  function jump(){
+	  location.href='check_sound.html';
+  }
+  function jump2(){
+	  location.href='check_init.html';
+  }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+	<h1 class="title">CASEC 環境チェック</h1>
+	<div class="center">
+		<p>ご利用の環境は下記の通りです。</p>
+	</div>
+	<div class="comment1 center">
+		チェック結果が<strong class="col1">すべて｢OK｣</strong> になりましたら<strong class="col1">｢次へ｣をクリック</strong>して音声の確認へお進みください。<br/>
+		※チェック結果がひとつでも 「NG」になっている場合、CASEC受験はできません。
+	</div>
+	<table class="checktable center">
+		<tr>
+			<th>チェック内容</th>
+			<th>ご利用の環境</th>
+			<th>結果</th>
+		</tr>
+		<tr>
+			<td>OS</td>
+			<td><div id="os-name">チェック中...</div></td>
+			<td><div id="os-result">チェック中...</div></td>
+		</tr>
+		<tr>
+			<td>ブラウザ</td>
+			<td><div id="browser-name">チェック中...</div></td>
+			<td><div id="browser-result">チェック中...</div></td>
+		</tr>
+		<tr>
+			<td>音声再生ソフトウェア</td>
+			<td><div id="player-name">チェック中...</div></td>
+			<td><div id="player-result">チェック中...</div></td>
+		</tr>
+		<tr>
+			<td>JavaScript</td>
+			<td><div id="js-name">利用不可</div></td>
+			<td><div id="js-result">NG</div></td>
+		</tr>
+		<tr>
+			<td>Cookie</td>
+			<td><div id="cookie-name">チェック中...</div></td>
+			<td><div id="cookie-result">チェック中...</div></td>
+		</tr>
+	</table>
+
+	<div id="result-message-success" class="comment-ok center">
+		チェックの結果が<strong class="col1">すべてOKとなりました</strong>。<br/>
+		「次へ」をクリックし、音声の確認にお進みください。
+	</div>
+	<div id="button-next" class="center">
+		<input name="Submit1" type="button" class="button" onclick="jump();" value="次へ" />
+	</div>
+	<div id="result-message-ng">
+		<p class="comment-err center"><strong class="col1">NG項目があります</strong>。　<br />
+		該当項目の<img src='img/check-help.gif' alt="" style="width: 23px" height="20"/>&nbsp;をクリックして詳細をご確認ください。</p>
+		
+		<div class="comment">
+		<h4>｢NG｣となった項目がある場合には  </h4>
+		<p>チェック結果がNGになっている項目は、CASEC受験にあたりNGの項目に起因する受験トラブルが発生する恐れがあります。
+		   設定変更・アプリケーションのアップデートなど改善が必要となりますので、該当の項目の｢確認｣をご参照ください。 </p>
+		</div>
+	</div>
+	<div id="button-back" class="center">
+		<input name="Submit2" type="button" onclick="jump2();" value="もう一度確認する" />
+	</div>
+  </div>
+
+</body>
+</html>
+

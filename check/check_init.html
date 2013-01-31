@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+  <title>CASEC 環境チェック</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="css/import.css" type="text/css" />
+  <script type="text/javascript" src="js/checkcookie.js"></script>
+  <script type="text/javascript">
+	var cookieInfo = new CookieInfo();
+	cookieInfo.checkCookieInit();
+	location.href='check.html';
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">CASEC 環境チェック</h1>
+    <div class="center comment-err">
+      <p>JavaScriptが無効の為、環境チェックが実行できません。<br/>
+		手順に従って、JavaScriptの設定を変更してください。</p>
+		<p>
+		<a href="man/man_javascript_win_ie.html" target="casec_man">（Windows+InternetExplorerでの設定手順）</a><br />
+		<a href="man/man_javascript_win_chrome.html" target="casec_man">（Windows+GoogleChromeでの設定手順）</a><br />
+		<a href="man/man_javascript_mac_chrome.html" target="casec_man">(MAC+GoogleChrome での設定手順)</a><br />
+		<a href="man/man_javascript_mac_safari.html" target="casec_man">(MAC+Safari での設定手順)</a></p>
+    </div>
+    <div class="center">
+		<form action="index.html" method="post">
+			<input name="Submit1" type="submit" class="button" value="環境チェックに戻る" />
+		</form>
+	</div>
+
+  </div>
+
+</body>
+</html>
+

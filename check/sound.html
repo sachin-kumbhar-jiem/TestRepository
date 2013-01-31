@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+  <title>CASEC 環境チェック</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="css/import.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery-1.8.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/os.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/browser.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/casecplayer.js" charset="UTF-8"></script>
+
+  <script type="text/javascript">
+  $(function(){
+	  var player = new CASECPlayer();
+	  player.soundUri = 'sound/demo.mp3';
+	  player.autoStart = true;
+	  player.showImage = true;
+	  player.loop = true;
+	  player.createPlayer('player');
+  });
+  function windowClose(){
+  	window.close();
+  }
+  </script>
+
+</head>
+
+<body>
+  <div class="container wide320">
+    <div id="main" class="center">
+    	<div>
+		    <img src="./img/help.gif" width="50" height="50"/>音の再生チェック
+	    </div>
+	    <div id="player"></div>
+	    <p></p>
+	    <p>音が聞こえますか？</p>
+		<p>聞こえたら音声確認は完了です。<br />
+		下のボタンをクリックし、画面を閉じてください。</p>
+
+	    <input name="Submit1" type="button" class="button" onclick="windowClose()" value="閉じる"/>
+		<p>音が小さい場合は、デスクトップ右下、タスクバーのサウンドアイコンをダブルクリックして調整してください。</p>
+		<p>回線状況により、少し時間がかかる場合があります。</p>
+	    
+	</div>
+    
+  </div>
+
+</body>
+</html>
+

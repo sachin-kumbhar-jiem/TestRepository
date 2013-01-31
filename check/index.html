@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+	<title>CASEC 環境チェック</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<!-- このページではjavascript使用不可 -->
+	<link rel="stylesheet" href="css/import.css" type="text/css" />
+	<!--[if IE]><link rel="stylesheet" href="css/import_ie.css" type="text/css" /><![endif]-->
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title"><img src="img/h_logo.gif" style="width: 176px" height="43"/><br/><br/>CASEC 環境チェック</h1>
+    <div class="center">
+    	<p>
+		  ご利用のパソコンでCASECが受験可能かチェックします。<br />
+		  画面下部の<strong class="col1">「環境チェック開始」ボタンをクリック</strong>して下さい。 <br />
+		  なお、CASECの動作環境は下記の通りです。<br />
+	    </p>
+    </div>
+    <div class="center">
+	<table class="checktable center">
+		<tr>
+			<th>OS</th>
+			<th>ブラウザ(※)</th>
+			<th>音声再生ソフトウェア</th>
+			<th>その他の機能</th>
+		</tr>
+		<tr>
+			<td rowspan="2">Windows<br />
+			XP/ Vista/ 7</td>
+			<td>InternetExplorer6以降</td>
+			<td>Windows Media Player<br />
+			9以降</td>
+			<td rowspan="4">Javascript 使用可<br />
+			cookie 使用可</td>
+		</tr>
+		<tr>
+			<td>GoogleChrome16以降</td>
+			<td rowspan="3">不要</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Macintosh<br />
+			OS X</td>
+			<td>Safari5.1以降</td>
+		</tr>
+		<tr>
+			<td>GoogleChrome16以降</td>
+		</tr>
+	</table>
+	</div>
+	<div class="center">
+		<p>(※) 各ブラウザともに、ベータ版の動作は保証しておりません。</p>
+		<form method="post" action="check_init.html">
+		<input name="Submit1" type="submit" class="button" value="環境チェック開始" />
+		</form>
+	</div>
+  </div>
+
+</body>
+</html>
+

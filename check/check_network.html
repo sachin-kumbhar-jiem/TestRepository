@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+	<title>CASEC 環境チェック</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="css/import.css" type="text/css" />
+	<!--[if IE]><link rel="stylesheet" href="css/import_ie.css" type="text/css" /><![endif]-->
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+	function jump(){
+		if(!$('input[name=choice]:checked').val()){
+			alert("選択されていません。");
+		}else{
+			if($('input[name=choice]:checked').val() == 'ok'){
+			location.href='check_setting.html';
+			}else if($('input[name=choice]:checked').val() == 'ng'){
+				location.href='error_network.html';
+			}else{
+				alert("選択されていません。");
+		}
+
+		}
+	}
+
+	</script>
+
+</head>
+
+<body>
+  <div class="container">
+	<h1 class="title">CASEC 環境チェック</h1>
+	<h3 class="thin">◆インターネット接続回線状況の確認</h3>
+	<br />
+	<div class="mar-lft50
+">
+		<p>▼CASECを受験する際の、インターネット接続回線環境を下記の中から選択して下さい。</p>
+		<ul class="choice">
+			<li><input id ="b-light" value="ok" type="radio" name="choice" /><label for="b-light">光回線</label></li>
+				<li><input id ="b-adsl" value="ok" type="radio" name="choice" /><label for="b-adsl">ADSL回線</label></li>
+			<li><input id ="b-catv" value="ok" type="radio" name="choice" /><label for="b-catv">CATV （ケーブル）回線</label></li>
+			<li><input id ="b-isdn" value="ok" type="radio" name="choice" /><label for="b-isdn">ISDN 回線</label></li>
+			<li><input id ="b-modemup56" value="ok" type="radio" name="choice" /><label for="b-modemup56">モデム接続（56Kbps以上）</label></li>
+			<li><input id ="b-modemun56" value="ng" type="radio" name="choice" /><label for="b-modemun56">モデム接続（56Kbps未満）</label></li>
+			<li><input id ="b-mobile" value="ng" type="radio" name="choice" /><label for="b-mobile">携帯・PHS（カード型接続端末含む）での接続 </label></li>
+			<li><input id ="b-lan" value="ok" type="radio" name="choice" /><label for="b-lan">会社・学校からの接続 </label></li>
+			<li><input id ="b-unknown" value="ng" type="radio" name="choice" /><label for="b-unknown">不明 （わからない）</label></li>
+		</ul>
+	</div>	
+	<br />
+	<div class="center">
+		<input name="Submit1" type="button" class="button" onclick="jump()" value="次へ" />
+	</div>
+
+  </div>
+
+</body>
+</html>
+

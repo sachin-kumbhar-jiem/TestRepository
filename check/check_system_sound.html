@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+	<title>CASEC 環境チェック</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="css/import.css" type="text/css" />
+	<!--[if IE]><link rel="stylesheet" href="css/import_ie.css" type="text/css" /><![endif]-->
+	<script type="text/javascript" src="js/jquery-1.8.1.min.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+	function jump(){
+			if(!$('input[name=choice]:checked').val()){
+				alert("選択されていません。");
+			}else{
+				if($('input[name=choice]:checked').val() == 'yes'){
+					location.href='error_sound.html';
+				}else if($('input[name=choice]:checked').val() == 'no'){
+					location.href='error_system_sound.html';
+				}else{
+					alert("選択されていません。");
+			}
+
+			}
+	}
+	function openSoundTestWindow(){
+		window.open("sound.html", "_blank", "width=350,height=450");
+	}
+	</script>
+
+</head>
+
+<body>
+  <div class="container">
+	<h1 class="title">CASEC 環境チェック</h1>
+	<h3 class="thin">◆システム音声再生確認</h3>
+	<div class="center comment1">
+		<p>下記の方法でコンピュータから音が出ているか確認してください。</p>
+		<p>コントロールパネル｢サウンド｣でシステム音声を再生してみる。</p>
+		<p><a href="man/man_system_sound_win.html" target="casec_man">（Windowsでの再生手順はこちら）</a><br />
+		<a href="man/man_system_sound_mac.html" target="casec_man">（MAC での再生手順はこちら）</a></p>
+	</div>
+	<div class="mar-lft50">
+		<p>▼システム音声は再生されましたか？</p>
+		<ul class="choice">
+			<li><input id ="b_yes" value="yes" type="radio" name="choice" /><label for="b_yes">はい</label></li>
+			<li><input id ="b_no" value="no" type="radio" name="choice" /><label for="b_no">いいえ</label></li>
+		</ul>
+	</div>	
+	<div class="center">
+		<input name="Submit1" type="button" class="button" onclick="jump()" value="次へ" />
+	</div>
+  </div>
+
+</body>
+</html>
+
