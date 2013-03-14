@@ -18,7 +18,7 @@ function CasecResult(){
 
 function CasecCheck(){
 
-	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','mac_x'];
+	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','mac_x'];
 
 	this.resultList = new Array();
 	this.resultList["os"] = new CasecResult();
