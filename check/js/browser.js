@@ -27,6 +27,7 @@ function BrowserInfo(){
 		'ie8' : 'Internet Explorer 8',
 		'ie9' : 'Internet Explorer 9',
 		'ie10' : 'Internet Explorer 10',
+		'ie11' : 'Internet Explorer 11',
 		'chrome10' : 'Google Chrome 10',
 		'chrome11' : 'Google Chrome 11',
 		'chrome12' : 'Google Chrome 12',
@@ -80,6 +81,8 @@ function BrowserInfo(){
 			this.baseBrowser = "sleipnir";
 		}else if(agt.indexOf("msie")!=-1){
 			this.baseBrowser = "ie";
+		}else if(agt.indexOf("trident")!=-1){
+			this.baseBrowser = "ie";
 		}
 
 	};
@@ -116,6 +119,9 @@ function BrowserInfo(){
 			}else if(agt.indexOf("msie 10")!=-1){
 				this.browser = "ie10";
 				this.version = 10;
+			}else if(agt.indexOf("trident/7.0")!=-1){
+				this.browser = "ie11";
+				this.version = 11;
 			}
 		}
 		

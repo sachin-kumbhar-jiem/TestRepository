@@ -29,6 +29,7 @@ function OsInfo(){
 		'win_Vista' : "Windows Vista",
 		'win_7' : "Windows 7",
 		'win_8' : "Windows 8",
+		'win_81' : "Windows 8.1",
 		'mac_x' : "Mac OS X",
 		'iOS2' : "iOS2",
 		'iOS3' : "iOS3",
@@ -99,9 +100,12 @@ function OsInfo(){
 				}else if(agt.indexOf("nt 6.1")!=-1){
 					this.os = "win_7";
 					this.version = 6.1;
-				}else if(agt.indexOf("nt 6.")!=-1){
+				}else if(agt.indexOf("nt 6.2")!=-1){
 					this.os = "win_8";
 					this.version = 6.2;
+				}else if(agt.indexOf("nt 6.3")!=-1){
+					this.os = "win_81";
+					this.version = 6.3;
 				}
 			}
 

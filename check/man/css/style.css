@@ -1,9 +1,13 @@
-﻿body{
+body{
 	background: #FFFFFF url(../img/menu_back.gif) repeat-x;
 	color:#000000;
 }
 .wide320{
 	width:320px
+}
+
+.wide360{
+	width:360px
 }
 h1.title{
 	text-align:center;
@@ -31,6 +35,9 @@ ul.choice{
 ul.choice label{
 	font-weight:normal;
 }
+.mar-lft30{
+	margin-left:30px;
+}
 .mar-lft50{
 	margin-left:50px;
 }
@@ -40,6 +47,12 @@ ul.choice label{
 .float-lft{
 	display:block;
 	float:left;
+}
+.mar-rgt20{
+	margin-right:20px
+}
+.mar-rgt30{
+	margin-right:30px
 }
 .mar-rgt50{
 	margin-right:50px
