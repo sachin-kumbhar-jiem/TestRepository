@@ -30,7 +30,7 @@ function CASECPlayer(){
 		
 		if(osInfo.baseOs == 'win'){
 			if(browserInfo.baseBrowser== 'chrome' ||
-				(browserInfo.baseBrowser == 'ie' && browserInfo.version >= 9)){
+				(browserInfo.baseBrowser == 'ie' && browserInfo.version >= 9) || (browserInfo.baseBrowser == 'microsoftedge')){
 				this.setCookieCasecPlayer('AUDIO');
 				
 			}else if(browserInfo.baseBrowser == 'ie' && browserInfo.version < 9){

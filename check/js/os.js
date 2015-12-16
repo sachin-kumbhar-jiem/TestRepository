@@ -30,6 +30,7 @@ function OsInfo(){
 		'win_7' : "Windows 7",
 		'win_8' : "Windows 8",
 		'win_81' : "Windows 8.1",
+		'win_NT10' : "Windows 10.0",
 		'mac_x' : "Mac OS X",
 		'iOS2' : "iOS2",
 		'iOS3' : "iOS3",
@@ -106,6 +107,10 @@ function OsInfo(){
 				}else if(agt.indexOf("nt 6.3")!=-1){
 					this.os = "win_81";
 					this.version = 6.3;
+				}else if(agt.indexOf("nt 10.0")!=-1){
+					this.os = "win_NT10";
+					this.version = 10;
+                                        
 				}
 			}
 
@@ -146,7 +151,7 @@ function OsInfo(){
 		if(osName){
 			return osName;
 		}else{
-			return "不明";
+			return "荳肴�";
 		}
 	};
 	
@@ -155,7 +160,7 @@ function OsInfo(){
 		if(osName){
 			return osName;
 		}else{
-			return "不明";
+			return "荳肴�";
 		}
 	};
 

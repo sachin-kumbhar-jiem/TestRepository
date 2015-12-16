@@ -18,7 +18,7 @@ function CasecResult(){
 
 function CasecCheck(){
 
-	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81','mac_x'];
+	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81','win_NT10','mac_x'];
 
 	this.resultList = new Array();
 	this.resultList["os"] = new CasecResult();
@@ -44,8 +44,9 @@ function CasecCheck(){
 	this.resultList["browser"].name = this.browserInfo.getBrowserName();
 	this.resultList["browser"].result = false;
 	if(this.resultList["os"].result && this.osInfo.baseOs=="win"){
-		if ((this.browserInfo.baseBrowser == "ie" && this.browserInfo.version >= 6) ||
-			(this.browserInfo.baseBrowser == "chrome" && this.browserInfo.version >= 16)) {
+		if ((this.browserInfo.baseBrowser == "microsoftedge") || 
+			(this.browserInfo.baseBrowser == "ie" && this.browserInfo.version >= 6) ||
+			(this.browserInfo.baseBrowser == "chrome"/* && this.browserInfo.version >= 16*/)) {
 				this.resultList["browser"].result = true;
 		}
 	}else if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){

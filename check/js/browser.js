@@ -5,7 +5,6 @@ function BrowserInfo(){
 	this.version = 0;
 
 	var agt=navigator.userAgent.toLowerCase();
-
 	var BASE_BROWSER_LIST = {
 		'ie' : 'Internet Explorer',
 		'chrome' : 'Google Chrome',
@@ -14,7 +13,8 @@ function BrowserInfo(){
 		'opera' : "Opera",
 		'lunascape' : "Lunascape",
 		'netscape' : "Netscape",
-		'sleipnir' : "Sleipnir"
+		'sleipnir' : "Sleipnir",
+		'microsoftedge' : "Microsoft Edge"
 	};
 
 	var BROWSER_LIST = {
@@ -54,18 +54,49 @@ function BrowserInfo(){
 		'chrome33' : 'Google Chrome 33',
 		'chrome34' : 'Google Chrome 34',
 		'chrome35' : 'Google Chrome 35',
+		'chrome36' : 'Google Chrome 36',
+		'chrome37' : 'Google Chrome 37',
+		'chrome38' : 'Google Chrome 38',
+		'chrome39' : 'Google Chrome 39',
+		'chrome40' : 'Google Chrome 40',
+		'chrome41' : 'Google Chrome 41',
+		'chrome42' : 'Google Chrome 42',
+		'chrome43' : 'Google Chrome 43',
+		'chrome44' : 'Google Chrome 44',
+		'chrome45' : 'Google Chrome 45',
+		'chrome46' : 'Google Chrome 46',
+		'chrome47' : 'Google Chrome 47',
+		'chrome48' : 'Google Chrome 48',
+		'chrome49' : 'Google Chrome 49',
+		'chrome50' : 'Google Chrome 50',
+		'chrome51' : 'Google Chrome 51',
+		'chrome52' : 'Google Chrome 52',
+		'chrome53' : 'Google Chrome 53',
+		'chrome54' : 'Google Chrome 54',
+		'chrome55' : 'Google Chrome 55',
+		'chrome56' : 'Google Chrome 56',
+		'chrome57' : 'Google Chrome 57',
+		'chrome58' : 'Google Chrome 58',
+		'chrome59' : 'Google Chrome 59',
+		'chrome60' : 'Google Chrome 60',
 		'safari4' : 'Safari 4',
 		'safari5' : 'Safari 5',
 		'safari51' : 'Safari 5.1',
 		'safari6' : 'Safari 6',
-		'safarim' : 'Mobile Safari'
+        'safari7' : 'Safari 7',
+        'safari8' : 'Safari 8',
+        'safari9' : 'Safari 9',
+		'safarim' : 'Mobile Safari',
+		'microsoftedge' : "Microsoft Edge"
 	};
 
 	this.checkBaseBrowser = function(){
 
 		this.baseBrowser = "";
 		
-		if(agt.indexOf("chrome")!=-1){
+		if(agt.indexOf("edge")!=-1){
+			this.baseBrowser = "microsoftedge";
+		}else if(agt.indexOf("chrome")!=-1){
 			this.baseBrowser = "chrome";
 		}else if(agt.indexOf("safari")!=-1){
 			this.baseBrowser = "safari";
@@ -86,6 +117,7 @@ function BrowserInfo(){
 		}
 
 	};
+	
 
 	this.checkBrowser = function(){
 
@@ -123,9 +155,18 @@ function BrowserInfo(){
 				this.browser = "ie11";
 				this.version = 11;
 			}
+				
 		}
 		
-		if(this.baseBrowser == "chrome"){
+		if (agt.indexOf("edge") != -1) {
+			this.browser = "microsoftedge";
+		}
+
+		if (agt.indexOf("chrome") != -1) {
+			this.browser = "Google Chrome";
+		}
+		
+		/*if(this.baseBrowser == "chrome"){
 			var verstr = "";
 			var idx = agt.indexOf("chrome/");
 			if(idx!=-1){
@@ -141,7 +182,9 @@ function BrowserInfo(){
 					this.version = parseFloat(verstr);
 				}
 			}
-		}
+		}*/
+		
+		
 		
 		if(this.baseBrowser == "safari"){
 			
@@ -174,9 +217,18 @@ function BrowserInfo(){
 				}else if(version.indexOf("6")==0){
 					this.browser="safari6";
 					this.version = 6;
-				}
+				}else if(version.indexOf("7")==0){
+                    this.browser="safari7";
+                    this.version = 7;
+                }else if(version.indexOf("8")==0){
+                    this.browser="safari8";
+                    this.version = 8;
+                }else if(version.indexOf("9")==0){
+                    this.browser="safari9";
+                    this.version = 9;
+                }
 			}else{
-				//version‰∏çÊòé
+				//versionïsñæ
 
 			}
 		}
@@ -188,7 +240,7 @@ function BrowserInfo(){
 		if(browserName){
 			return browserName;
 		}else{
-			return "‰∏çÊòé";
+			return "ïsñæ";
 		}
 	};
 	
@@ -200,7 +252,7 @@ function BrowserInfo(){
 			if(this.baseBrowser != ""){
 				return this.getBaseBrowserName();
 			}else{
-				return "‰∏çÊòé";
+				return "ïsñæ";
 			}
 		}
 	};
