@@ -50,7 +50,7 @@ function CasecCheck(){
 				this.resultList["browser"].result = true;
 		}
 	}else if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){
-		if ((this.browserInfo.baseBrowser == "chrome" && this.browserInfo.version >= 16) ||
+		if ((this.browserInfo.baseBrowser == "chrome" /*&& this.browserInfo.version >= 16*/) ||
 			(this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 5.1)) {
 				this.resultList["browser"].result = true;
 		}
