@@ -15,6 +15,8 @@
   <script type="text/javascript">
   $(function(){
      var casecCheck = new CasecCheck();
+	 var casecbrowsercheck= new CasecBrowserCheck();
+	 var casecoscheck = new CasecOsCheck();
     try{
 		$('#os-name').text(casecCheck.resultList['os'].name);
 		$('#os-result').text(casecCheck.resultList['os'].resultMessage());
@@ -35,6 +37,15 @@
 		$('#cookie-name').text(casecCheck.resultList['cookie'].name);
 		$('#cookie-result').text(casecCheck.resultList['cookie'].resultMessage());
 	}catch(e){}
+	try{
+		$('#browser-name').text(casecbrowsercheck.resultList['browser'].name);
+		$('#browser-result').text(casecbrowsercheck.resultList['browser'].resultbrowser());
+	}catch(e){}
+	try{
+		$('#os-name').text(casecoscheck.resultList['os'].name);
+		$('#os-result').text(casecoscheck.resultList['os'].resultos());
+	}catch(e){}
+	
 	
 	if (casecCheck.totalResult==true){
 		$('#result-message-ng').hide();
@@ -63,6 +74,12 @@
 	}
 	if($('#cookie-result').text()=="NG"){
 		$('#cookie-result').append("&nbsp;<a href='error_cookie.html'><img src='img/check-help.gif'/></a>");
+	}
+	if($('#browser-result').text()=="▲"){
+		$('#browser-result').append("&nbsp;<a href='instruction.html' target='_blank'><img src='img/check-help.gif' /></a>");
+	}
+	if($('#os-result').text()=="▲"){
+		$('#os-result').append("&nbsp;<a href='instruction.html' target='_blank'><img src='img/check-help.gif' /></a>");
 	}
 
 
