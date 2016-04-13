@@ -50,12 +50,21 @@
 	if (casecCheck.totalResult==true){
 		$('#result-message-ng').hide();
 		$('#button-back').hide();
-	}else{
+	}
+	else{
 		$('#result-message-success').hide();
 		$('#button-next').hide();
-		
+		$('#result-message-success-part').hide();		
 	}
 	
+	
+	if(casecbrowsercheck.totalResult==true || casecoscheck.totalResult== true){
+	    $('#result-message-success').hide();
+		//$('#result-message-success-part').show();
+	}
+	else{
+	    $('#result-message-success-part').hide();
+	}
 	$("[id$='-result']").each(function(){
 		if($(this).text()=="NG"){
 			$(this).wrapInner("<strong class='col1'></strong>");
@@ -102,7 +111,8 @@
 	</div>
 	<div class="comment1 center">
 		チェック結果が<strong class="col1">すべて｢OK｣</strong> になりましたら<strong class="col1">｢次へ｣をクリック</strong>して音声の確認へお進みください。<br/>
-		※チェック結果がひとつでも 「NG」になっている場合、CASEC受験はできません。
+		※チェック結果がひとつでも 「NG」になっている場合、CASEC受験はできません。<br>
+		<b>※チェック結果が「▲」になっている項目がある場合は、必ず詳細を確認してください。</b>
 	</div>
 	<table class="checktable center">
 		<tr>
@@ -141,6 +151,12 @@
 		チェックの結果が<strong class="col1">すべてOKとなりました</strong>。<br/>
 		「次へ」をクリックし、音声の確認にお進みください。
 	</div>
+	<div id="result-message-success-part" class="comment-ok center">
+		▲の項目があります。
+必ず該当項目の？をクリックして、詳細を確認してください。
+確認の結果、このまま受験をされる場合は次へをクリックして音声確認へお進みください。
+	</div> 
+	
 	<div id="button-next" class="center">
 		<input name="Submit1" type="button" class="button" onclick="jump();" value="次へ" />
 	</div>
