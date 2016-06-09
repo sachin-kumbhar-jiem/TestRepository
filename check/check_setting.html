@@ -16,10 +16,14 @@
 		var browserInfo = new BrowserInfo();
 			
 		if(browserInfo.baseBrowser=="ie"){
-			if(browserInfo.version==7){
-				location.href="check_setting_ie7.html";
-			}else if(browserInfo.version>=8){
+			if(browserInfo.version < 11){
+				location.href="check_setting_ie10.html";
+			/*}else if(browserInfo.version>=8 && browserInfo.version<10){
 				location.href="check_setting_ie8up.html";
+			}else if(browserInfo.version==10){
+			    location.href="check_setting_ie10.html"; */
+			}else if(browserInfo.version==11){   
+			    location.href="check_setting_ie11.html"; 
 			}else{
 				location.href="check_end.html";
 			}

@@ -15,6 +15,7 @@ function CasecResult(){
 	};
 }
 
+
 function CaseckBrowserResult(){
 	this.result = false;
 	this.resultbrowser = function(){
@@ -71,7 +72,7 @@ function CasecBrowserCheck(){
 	this.resultList["browser"].result = false;
 	if(this.resultList["os"].result && this.osInfo.baseOs=="win"){
 		if ((this.osInfo.version == 10 && 
-				  this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
+                                  this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
 				  this.resultList["browser"].result = true;
 		}
 		else if ((this.osInfo.version == 6.3 && 
@@ -79,7 +80,15 @@ function CasecBrowserCheck(){
 				  this.resultList["browser"].result = true;
 		}
 		else if ((this.osInfo.version == 6.1 && 
-			      this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
+			          this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
+				  this.resultList["browser"].result = true;
+		}
+                else if ((this.osInfo.version == 6 && 
+			          this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 7)) {
+				  this.resultList["browser"].result = true;
+		}
+		else if ((this.osInfo.version == 6 && 
+			          this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 8)) {
 				  this.resultList["browser"].result = true;
 		}
 		else if ((this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 7)){
@@ -130,13 +139,13 @@ function CasecCheck(){
 	this.resultList["browser"].name = this.browserInfo.getBrowserName();
 	this.resultList["browser"].result = false;
 	if(this.resultList["os"].result && this.osInfo.baseOs=="win"){
-		if ((this.browserInfo.baseBrowser == "microsoftedge") ||
+		if ((this.browserInfo.baseBrowser == "microsoftedge") || 
 			(this.browserInfo.baseBrowser == "ie" && this.browserInfo.version >= 6) ||
 			(this.browserInfo.baseBrowser == "chrome"/* && this.browserInfo.version >= 16*/)) {
 				this.resultList["browser"].result = true;
 		}
 	}else if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){
-		if ((this.browserInfo.baseBrowser == "chrome" /*&& this.browserInfo.version >= 16*/) ||
+		if ((this.browserInfo.baseBrowser == "chrome" /*&&this.browserInfo.version >= 16*/) ||
 			(this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 5.1)) {
 				this.resultList["browser"].result = true;
 		}

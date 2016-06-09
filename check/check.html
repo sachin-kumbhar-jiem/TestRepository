@@ -54,13 +54,12 @@
 	else{
 		$('#result-message-success').hide();
 		$('#button-next').hide();
-		$('#result-message-success-part').hide();		
+        $('#result-message-success-part').hide();	
 	}
 	
 	
 	if(casecbrowsercheck.totalResult==true || casecoscheck.totalResult== true){
 	    $('#result-message-success').hide();
-		//$('#result-message-success-part').show();
 	}
 	else{
 	    $('#result-message-success-part').hide();
@@ -112,7 +111,7 @@
 	<div class="comment1 center">
 		チェック結果が<strong class="col1">すべて｢OK｣</strong> になりましたら<strong class="col1">｢次へ｣をクリック</strong>して音声の確認へお進みください。<br/>
 		※チェック結果がひとつでも 「NG」になっている場合、CASEC受験はできません。<br>
-		<b>※チェック結果が「▲」になっている項目がある場合は、必ず詳細を確認してください。</b>
+		※チェック結果が「▲」になっている項目がある場合は、必ず詳細を確認してください。
 	</div>
 	<table class="checktable center">
 		<tr>
@@ -153,7 +152,7 @@
 	</div>
 	<div id="result-message-success-part" class="comment-ok center">
 		▲の項目があります。
-必ず該当項目の？をクリックして、詳細を確認してください。
+必ず該当項目の<img src='img/check-help.gif' alt="" style="width: 23px" height="20"/>&nbsp;をクリックして、詳細を確認してください。
 確認の結果、このまま受験をされる場合は次へをクリックして音声確認へお進みください。
 	</div> 
 	
