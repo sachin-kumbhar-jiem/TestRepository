@@ -172,7 +172,7 @@ function OsInfo(){
 		if(osName){
 			return osName;
 		}else{
-			return "荳肴�";
+			return "不明";
 		}
 	};
 	
@@ -181,7 +181,7 @@ function OsInfo(){
 		if(osName){
 			return osName;
 		}else{
-			return "荳肴�";
+			return "不明";
 		}
 	};
 
