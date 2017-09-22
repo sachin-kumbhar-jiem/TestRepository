@@ -72,7 +72,10 @@
 	
 	//ヘルプの追加
 	if($('#os-result').text()=="NG"){
-		$('#os-result').wrapInner("<a href='error_os.html'></a>");
+		
+		//Ticket no 2017-04-05 1514
+		//$('#os-result').wrapInner("<a href='error_os.html'></a>");
+		$('#os-result').append("&nbsp;<a href='error_os.html'><img src='img/check-help.gif'/></a>");
 	}
 	if($('#browser-result').text()=="NG"){
 		$('#browser-result').append("&nbsp;<a href='error_browser.html'><img src='img/check-help.gif'/></a>");

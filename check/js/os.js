@@ -31,7 +31,11 @@ function OsInfo(){
 		'win_8' : "Windows 8",
 		'win_81' : "Windows 8.1",
 		'win_NT10' : "Windows 10.0",
-		'mac_x' : "Mac OS X",
+		'mac_x108' : "Mac OS X 10.8",
+		'mac_x109' : "Mac OS X 10.9",
+		'mac_x1010' : "Mac OS X 10.10",
+		'mac_x1011' : "Mac OS X 10.11",
+		'mac_x1012' : "Mac OS X 10.12",
 		'iOS2' : "iOS2",
 		'iOS3' : "iOS3",
 		'iOS4' : "iOS4",
@@ -117,8 +121,25 @@ function OsInfo(){
 		}
 		
 		if(this.baseOs == "mac"){
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x")!=-1)){
-				this.os = "mac_x";
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_8")!=-1)){
+				this.os = "mac_x108";
+				this.version = 10.08;
+			}
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_9")!=-1)){
+				this.os = "mac_x109";
+				this.version = 10.09;
+			}
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_10")!=-1)){
+				this.os = "mac_x1010";
+				this.version = 10.10;
+			}
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_11")!=-1)){
+				this.os = "mac_x1011";
+				this.version = 10.11;
+			}
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_12")!=-1)){
+				this.os = "mac_x1012";
+				this.version = 10.12;
 			}
 
 		}

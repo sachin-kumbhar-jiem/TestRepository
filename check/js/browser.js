@@ -86,6 +86,7 @@ function BrowserInfo(){
         'safari7' : 'Safari 7',
         'safari8' : 'Safari 8',
         'safari9' : 'Safari 9',
+        'safari10' : 'Safari 10',
 		'safarim' : 'Mobile Safari',
 		'microsoftedge' : "Microsoft Edge"
 	};
@@ -226,9 +227,12 @@ function BrowserInfo(){
                 }else if(version.indexOf("9")==0){
                     this.browser="safari9";
                     this.version = 9;
+                }else if(version.indexOf("10")==0){
+                    this.browser="safari10";
+                    this.version = 10;
                 }
 			}else{
-				//version•s–¾
+				//versionï¿½sï¿½ï¿½
 
 			}
 		}
@@ -240,7 +244,7 @@ function BrowserInfo(){
 		if(browserName){
 			return browserName;
 		}else{
-			return "•s–¾";
+			return "ï¿½sï¿½ï¿½";
 		}
 	};
 	
@@ -252,7 +256,7 @@ function BrowserInfo(){
 			if(this.baseBrowser != ""){
 				return this.getBaseBrowserName();
 			}else{
-				return "•s–¾";
+				return "ï¿½sï¿½ï¿½";
 			}
 		}
 	};
