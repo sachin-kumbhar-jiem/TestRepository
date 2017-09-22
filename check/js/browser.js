@@ -232,7 +232,7 @@ function BrowserInfo(){
                     this.version = 10;
                 }
 			}else{
-				//version�s��
+				//version不明
 
 			}
 		}
@@ -244,7 +244,7 @@ function BrowserInfo(){
 		if(browserName){
 			return browserName;
 		}else{
-			return "�s��";
+			return "不明";
 		}
 	};
 	
@@ -256,7 +256,7 @@ function BrowserInfo(){
 			if(this.baseBrowser != ""){
 				return this.getBaseBrowserName();
 			}else{
-				return "�s��";
+				return "不明";
 			}
 		}
 	};
