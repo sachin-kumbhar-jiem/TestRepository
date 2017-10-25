@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>CASEC 環境チェック</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />  
+  <link rel="stylesheet" href="css/import.css" type="text/css" />   
+  <script type="text/javascript" src="js/jquery-1.8.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/checkwebcam.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/webcam.js" charset="UTF-8"></script> 
+  <script>
+  var envCheckResult={webcam:false,chrome:false};
+	function setWebcamNgResult(){
+			envCheckResult.webcam=false;
+			console.log("indise setWebcamNgResult");
+			$('#camera-name').text("NG");
+			$('#camera-result').text("NG");
+			
+			if($('#camera-result').text()=="NG"){
+				$('#camera-result').wrapInner("<strong class='col1'></strong>");
+				$('#camera-result').append("&nbsp;<a href='man/man_webcam_chrome.html'><img src='img/check-help.gif'/></a>");
+			}
+			 showResultMessage();
+	}	
+	function setWebcamOkResult(){
+			envCheckResult.webcam=true
+			console.log("indise setWebcamOkResult");
+			$('#camera-name').text("利用可");
+			$('#camera-result').text("OK");			
+			showResultMessage()			
+	}
+	
+	function setChromeNgResult(){
+			console.log("indise setWebcamNgResult");
+			$('#camera-name').text("Not 利用可");
+			$('#camera-result').text("NG");				
+	}	
+	function setChromeOkResult(){
+			console.log("indise setWebcamOkResult");
+			$('#camera-name').text("利用可");
+			$('#camera-result').text("OK");	
+	}
+	
+	function showResultMessage(){
+		if(envCheckResult.webcam && envCheckResult.chrome){
+			$('#result-message-ng').hide();
+			$('#result-message-success').show();		
+		}else{		
+			$('#result-message-ng').show();
+			$('#result-message-success').hide();
+		}				
+	}
+  
+	$(function(){
+		checkBrowser=new BrowserInfo();			
+		checkBrowser.checkChromeBrowser();
+
+		
+		$('#browser-result').text(checkBrowser.resultMessage());
+		console.log(checkBrowser.resultMessage()==='NG')
+		if(checkBrowser.resultMessage()==='NG'){
+			envCheckResult.chrome=false;
+			$('#browser-name').text("Not 利用可");
+		}else{
+			envCheckResult.chrome=true;
+			$('#browser-name').text('利用可');
+		}
+		
+		/*if($('#browser-result').text()=="NG"){
+			$('#browser-result').append("&nbsp;<a href='error_browser.html'><img src='img/check-help.gif'/></a>");
+		}
+		*/
+		
+		checkWebcam = new WebcamInfo();
+		checkWebcam.webcamOnLive=function(){
+			console.log("inside function live new");
+			setWebcamOkResult();		
+		}
+		
+		checkWebcam.webcamOnError=function(err){		
+			console.log(JSON.stringify(err));
+			console.log("inside function Error new********");	
+			setWebcamNgResult();
+			console.log("inside function Error new end");			
+		}		
+		checkWebcam.init();		
+		console.log("isWebCamEnabled :: "+checkWebcam.isWebCamEnabled());
+		
+	});
+
+	</script>
+	 
+	</head>
+
+
+	<body>
+	  <div class="container">
+		<h1 class="title">CASEC 環境チェック</h1>
+		<div class="center">
+			<p>ご利用の環境は下記の通りです。</p>
+		</div>
+		<div class="comment1 center">
+			チェック結果が<strong class="col1">すべて｢OK｣</strong> になりましたら CASEC受験ができます。<br/>
+			※チェック結果が 「NG」になっている場合、顔認証ができません。<br>		
+		</div>
+		
+		<div class="center" style="margin: auto;width: 50%;padding: 10px;">
+			<div id="my_camera"></div>
+		</div>
+		<br/>
+		
+		<table class="checktable center">
+			<tr>
+				<th>チェック内容</th>
+				<th>ご利用の環境</th>
+				<th>結果</th>
+			</tr>
+			<tr>
+			<td>Google Chrome</td>
+			<td><div id="browser-name">チェック中...</div></td>
+			<td><div id="browser-result">チェック中...</div></td>
+		</tr>			
+			<tr>
+				<td>Camera Hardware</td>
+				<td><div id="camera-name">チェック中...</div></td>
+				<td><div id="camera-result">チェック中...</div></td>
+			</tr>
+		</table>
+		<div id="result-message-success" class="comment-ok center" hidden>
+			チェックの結果が<strong class="col1">すべてOKとなりました</strong>。 黒い画面が表示されたら、他のブラウザやWebカメラにアクセスしているデバイスを確認してください。 他のデバイスを閉じてもう一度ページを更新してください。<br/>
+			
+		</div>
+		<div id="result-message-ng" hidden>
+			<p class="comment-err center"><strong class="col1">NG項目があります</strong>。　<br />
+			該当項目の<img src='img/check-help.gif' alt="" style="width: 23px" height="20"/>&nbsp;をクリックして詳細をご確認ください。</p>
+			
+			<div class="comment">
+			<h4>｢NG｣となった項目がある場合には  </h4>
+			<p>チェック結果がNGになっている項目は、CASEC受験にあたりNGの項目に起因する受験トラブルが発生する恐れがあります。 カメラへのアクセスを許可した後、ポップアップウィンドウを閉じて、再度ウェブカメラ環境チェックリンクをクリックしてください。</p>
+			</div>
+		</div>
+
+	</div>
+	<div id="my_camera"></div>
+	</body>
+</html>
+
