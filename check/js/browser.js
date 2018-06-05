@@ -87,6 +87,7 @@ function BrowserInfo(){
         'safari8' : 'Safari 8',
         'safari9' : 'Safari 9',
         'safari10' : 'Safari 10',
+        'safari11' : 'Safari 11',
 		'safarim' : 'Mobile Safari',
 		'microsoftedge' : "Microsoft Edge"
 	};
@@ -230,6 +231,9 @@ function BrowserInfo(){
                 }else if(version.indexOf("10")==0){
                     this.browser="safari10";
                     this.version = 10;
+                }else if(version.indexOf("11")==0){
+                    this.browser="safari11";
+                    this.version = 11;
                 }
 			}else{
 				//version不明

@@ -25,6 +25,15 @@ function CaseckBrowserResult(){
 	}
 }
 
+function CaseckSafariBrowserResult(){
+	this.result = false;
+	this.resultbrowser = function(){
+		if(this.result){
+			return "▲";
+		}
+	}
+}
+
 function CaseckOsResult(){
 	this.result = false;
 	this.resultos = function(){
@@ -66,6 +75,39 @@ function CasecOsCheck(){
 }
 
 
+function CasecSafariBrowserCheck(){
+	
+	var CASEC_OS_LIST = ['win_Vista','win_7','win_8','win_81','win_NT10','mac_x1013'];
+	this.resultList = new Array();
+	this.resultList["os"] = new CaseckSafariBrowserResult();
+	this.resultList["browser"] = new CaseckSafariBrowserResult();
+	this.osInfo = new OsInfo();
+	this.resultList["os"].name = this.osInfo.getOsName();
+	this.resultList["os"].result = false;
+	for(var i = 0; i < CASEC_OS_LIST.length; i++){
+		if(CASEC_OS_LIST[i] === this.osInfo.os){
+			this.resultList["os"].result = true;
+		}
+	}
+	
+	this.browserInfo = new BrowserInfo();
+	this.resultList["browser"].name = this.browserInfo.getBrowserName();
+	this.resultList["browser"].result = false;
+	if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){
+		if ((this.osInfo.version >= 10.09 && 
+                  this.browserInfo.baseBrowser == "safari" && this.browserInfo.version == 11)) {
+				  this.resultList["browser"].result = true;
+				  this.resultList["os"].result = true;
+		}
+	}
+	this.totalResult = true;
+	for(var r in this.resultList){
+		if(!this.resultList[r].result){
+			this.totalResult = false;
+		}
+	}
+}
+
 function CasecBrowserCheck(){
 	
 	var CASEC_OS_LIST = ['win_Vista','win_7','win_8','win_81','win_NT10'];
@@ -87,19 +129,19 @@ function CasecBrowserCheck(){
 	if(this.resultList["os"].result && this.osInfo.baseOs=="win"){
 		if ((this.osInfo.version == 10 && 
                   this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
-				  this.resultList["browser"].result = true;
+				  this.resultList["browser"].result = false;
 		}
 		else if ((this.osInfo.version == 6.3 && 
 				  this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
-				  this.resultList["browser"].result = true;
+				  this.resultList["browser"].result = false;
 		}
 		else if ((this.osInfo.version == 6.1 && 
 				  this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
-				  this.resultList["browser"].result = true;
+				  this.resultList["browser"].result = false;
 		}
         else if ((this.osInfo.version == 6 && 
 			      this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 7)) {
-				  this.resultList["browser"].result = true;
+				  this.resultList["browser"].result = false;
 		}
 		//Commented for ticket no 1514
 		
@@ -111,10 +153,10 @@ function CasecBrowserCheck(){
 		/*Ticket no 1514*/
 		else if ((this.osInfo.version == 6 && 
 		          this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)) {
-			  	  this.resultList["browser"].result = true;
+			  	  this.resultList["browser"].result = false;
 		}
 		else if ((this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 7)){
-			      this.resultList["browser"].result = true;
+			      this.resultList["browser"].result = false;
 		}
 		
 		
@@ -123,7 +165,7 @@ function CasecBrowserCheck(){
 			    this.resultList["browser"].result = true;
 		}*/
 		else if ((this.browserInfo.baseBrowser == "ie" && this.browserInfo.version == 9)){
-		    	this.resultList["browser"].result = true;
+		    	this.resultList["browser"].result = false;
 		}
 		
 		//Commented for ticket no 1514
@@ -141,7 +183,7 @@ function CasecBrowserCheck(){
 
 function CasecCheck(){
 
-	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81','win_NT10','mac_x108','mac_x109','mac_x1011','mac_x1012'];
+	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81','win_NT10','mac_x108','mac_x109','mac_x1011','mac_x1012','mac_x1013'];
 
 	this.resultList = new Array();
 	this.resultList["os"] = new CasecResult();
@@ -168,13 +210,13 @@ function CasecCheck(){
 	this.resultList["browser"].result = false;
 	if(this.resultList["os"].result && this.osInfo.baseOs=="win"){
 		if ((this.browserInfo.baseBrowser == "microsoftedge") || 
-			(this.browserInfo.baseBrowser == "ie" && this.browserInfo.version >= 6) ||
+			(this.browserInfo.baseBrowser == "ie" && this.browserInfo.version >= 8) ||
 			(this.browserInfo.baseBrowser == "chrome"/* && this.browserInfo.version >= 16*/)) {
 				this.resultList["browser"].result = true;
 		}
 	}else if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){
 		if ((this.browserInfo.baseBrowser == "chrome" /*&&this.browserInfo.version >= 16*/) ||
-			(this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 7)) {
+			 (this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 7)) {
 				this.resultList["browser"].result = true;
 		}
 	}
@@ -183,7 +225,7 @@ function CasecCheck(){
 				
 		if(this.osInfo.version >= 10.09){
 		  if ((this.browserInfo.baseBrowser == "chrome") ||
-                        (this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 7)) {
+				  (this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 7)) {
                                 this.resultList["browser"].result = true;
 				this.resultList["os"].result = true;
                   }
@@ -196,7 +238,11 @@ function CasecCheck(){
 	/*Removed support for XP os -- 1514*/
 	   
 	if ((this.osInfo.version == 5.1 && this.browserInfo.baseBrowser == "chrome")) {
-		this.resultList["os"].result = false; //chrome
+		this.resultList["os"].result = false; //XP+chrome
+	}
+	if ((this.osInfo.version == 5.1 && this.browserInfo.baseBrowser == "ie")) {
+		this.resultList["os"].result = false; //XP+IE
+		this.resultList["browser"].result = false;
 	}
 	
 	/*Removed support for IE9 & IE10 for Win 7 OS -- 1514*/

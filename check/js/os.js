@@ -36,6 +36,7 @@ function OsInfo(){
 		'mac_x1010' : "Mac OS X 10.10",
 		'mac_x1011' : "Mac OS X 10.11",
 		'mac_x1012' : "Mac OS X 10.12",
+		'mac_x1013' : "Mac OS X 10.13",
 		'iOS2' : "iOS2",
 		'iOS3' : "iOS3",
 		'iOS4' : "iOS4",
@@ -140,6 +141,10 @@ function OsInfo(){
 			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_12")!=-1)){
 				this.os = "mac_x1012";
 				this.version = 10.12;
+			}
+			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_13")!=-1)){
+				this.os = "mac_x1013";
+				this.version = 10.13;
 			}
 
 		}
