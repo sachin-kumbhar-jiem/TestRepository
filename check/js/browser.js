@@ -5,6 +5,7 @@ function BrowserInfo(){
 	this.version = 0;
 
 	var agt=navigator.userAgent.toLowerCase();
+	
 	var BASE_BROWSER_LIST = {
 		'ie' : 'Internet Explorer',
 		'chrome' : 'Google Chrome',
@@ -88,6 +89,13 @@ function BrowserInfo(){
         'safari9' : 'Safari 9',
         'safari10' : 'Safari 10',
         'safari11' : 'Safari 11',
+        'safari12' : 'Safari 12',
+        'safari13' : 'Safari 13',
+        'safari14' : 'Safari 14',
+        'safari15' : 'Safari 15',
+        'safari16' : 'Safari 16',
+        'safari17' : 'Safari 17',
+        'safari18' : 'Safari 18',
 		'safarim' : 'Mobile Safari',
 		'microsoftedge' : "Microsoft Edge"
 	};
@@ -234,6 +242,27 @@ function BrowserInfo(){
                 }else if(version.indexOf("11")==0){
                     this.browser="safari11";
                     this.version = 11;
+                }else if(version.indexOf("12")==0){
+                    this.browser="safari12";
+                    this.version = 12;
+                }else if(version.indexOf("13")==0){
+                    this.browser="safari13";
+                    this.version = 13;
+                }else if(version.indexOf("14")==0){
+                    this.browser="safari14";
+                    this.version = 14;
+                }else if(version.indexOf("15")==0){
+                    this.browser="safari15";
+                    this.version = 15;
+                }else if(version.indexOf("16")==0){
+                    this.browser="safari16";
+                    this.version = 16;
+                }else if(version.indexOf("17")==0){
+                    this.browser="safari17";
+                    this.version = 17;
+                }else if(version.indexOf("18")==0){
+                    this.browser="safari18";
+                    this.version = 18;
                 }
 			}else{
 				//version不明
@@ -264,6 +293,7 @@ function BrowserInfo(){
 			}
 		}
 	};
+	
 	this.checkBaseBrowser();
 	this.checkBrowser();
 	

@@ -37,6 +37,13 @@ function OsInfo(){
 		'mac_x1011' : "Mac OS X 10.11",
 		'mac_x1012' : "Mac OS X 10.12",
 		'mac_x1013' : "Mac OS X 10.13",
+		'mac_x1014' : "Mac OS X 10.14",
+		'mac_x1015' : "Mac OS X 10.15",
+		'mac_x1016' : "Mac OS X 10.16",
+		'mac_x1017' : "Mac OS X 10.17",
+		'mac_x1018' : "Mac OS X 10.18",
+		'mac_x1019' : "Mac OS X 10.19",
+		'mac_x1020' : "Mac OS X 10.20",
 		'iOS2' : "iOS2",
 		'iOS3' : "iOS3",
 		'iOS4' : "iOS4",
@@ -125,28 +132,44 @@ function OsInfo(){
 			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_8")!=-1)){
 				this.os = "mac_x108";
 				this.version = 10.08;
-			}
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_9")!=-1)){
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_9")!=-1)){
 				this.os = "mac_x109";
 				this.version = 10.09;
-			}
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_10")!=-1)){
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_10")!=-1)){
 				this.os = "mac_x1010";
 				this.version = 10.10;
-			}
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_11")!=-1)){
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_11")!=-1)){
 				this.os = "mac_x1011";
 				this.version = 10.11;
-			}
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_12")!=-1)){
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_12")!=-1)){
 				this.os = "mac_x1012";
 				this.version = 10.12;
-			}
-			if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_13")!=-1)){
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_13")!=-1)){
 				this.os = "mac_x1013";
 				this.version = 10.13;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_14")!=-1)){
+				this.os = "mac_x1014";
+				this.version = 10.14;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_15")!=-1)){
+				this.os = "mac_x1015";
+				this.version = 10.15;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_16")!=-1)){
+				this.os = "mac_x1016";
+				this.version = 10.16;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_17")!=-1)){
+				this.os = "mac_x1017";
+				this.version = 10.17;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_18")!=-1)){
+				this.os = "mac_x1018";
+				this.version = 10.18;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_19")!=-1)){
+				this.os = "mac_x1019";
+				this.version = 10.18;
+			}else if((agt.indexOf("macintosh")!=-1) && (agt.indexOf("mac os x 10_20")!=-1)){
+				this.os = "mac_x1020";
+				this.version = 10.20;
 			}
-
+			
 		}
 		
 		if(this.baseOs == "ipod" || this.baseOs == "iphone"){

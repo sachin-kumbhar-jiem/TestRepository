@@ -91,10 +91,11 @@
 	if($('#cookie-result').text()=="NG"){
 		$('#cookie-result').append("&nbsp;<a href='error_cookie.html'><img src='img/check-help.gif'/></a>");
 	}
-	if(casecbrowsercheck.resultList['browser'].name=="Safari 11" && $('#browser-result').text()=="▲"){
+	
+	if((casecsafaribrowsercheck.resultList['browser'].baseBrowser=="safari" && casecsafaribrowsercheck.resultList['browser'].version>=11) && $('#browser-result').text()=="▲"){
 		$('#browser-result').append("&nbsp;<a href='man/man_system_sound_mac_10_13.html' target='_blank'><img src='img/check-help.gif' /></a>");
 	}
-	if($('#browser-result').text()=="▲"){
+	if($('#browser-result').text()=="▲" && casecbrowsercheck.resultList['browser'].baseBrowserName!="safari"){
 		$('#browser-result').append("&nbsp;<a href='instruction.html' target='_blank'><img src='img/check-help.gif' /></a>");
 	}
 	if($('#os-result').text()=="▲"){

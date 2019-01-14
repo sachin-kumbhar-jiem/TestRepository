@@ -5,6 +5,8 @@ if( !CookieInfo )throw('ERROR!');
 
 function CasecResult(){
 	this.name = "";
+	this.version = 0;
+	this.baseBrowserName="";
 	this.result = false;
 	this.resultMessage = function(){
 		if(this.result){
@@ -57,14 +59,14 @@ function CasecOsCheck(){
 	
 	
 		if ((this.osInfo.baseOs=="win" && this.osInfo.version == 6)){
-				  this.resultList["os"].result = true;
+				  this.resultList["os"].result = false;
 		}
 		/*if ((this.osInfo.baseOs=="win" && this.osInfo.version == 6.2)){
 				  this.resultList["os"].result = true;
 		}*/
 		if ((this.osInfo.version == 6 && this.browserInfo.baseBrowser == "chrome")) {
             this.resultList["browser"].result = true;
-            this.resultList["os"].result = true;
+            this.resultList["os"].result = false;
 		}
 	this.totalResult = true;
 	for(var r in this.resultList){
@@ -77,7 +79,9 @@ function CasecOsCheck(){
 
 function CasecSafariBrowserCheck(){
 	
-	var CASEC_OS_LIST = ['win_Vista','win_7','win_8','win_81','win_NT10','mac_x1013'];
+	var CASEC_OS_LIST = ['win_Vista','win_7','win_8','win_81','win_NT10','mac_x108','mac_x109','mac_x1011',
+	                     'mac_x1012','mac_x1013','mac_x1014','mac_x1015',
+	                     'mac_x1016','mac_x1017','mac_x1018','mac_x1019','mac_x1020'];
 	this.resultList = new Array();
 	this.resultList["os"] = new CaseckSafariBrowserResult();
 	this.resultList["browser"] = new CaseckSafariBrowserResult();
@@ -92,10 +96,12 @@ function CasecSafariBrowserCheck(){
 	
 	this.browserInfo = new BrowserInfo();
 	this.resultList["browser"].name = this.browserInfo.getBrowserName();
+	this.resultList["browser"].baseBrowser = this.browserInfo.baseBrowser;
+	this.resultList["browser"].version = this.browserInfo.version;
 	this.resultList["browser"].result = false;
 	if(this.resultList["os"].result && this.osInfo.baseOs=="mac"){
 		if ((this.osInfo.version >= 10.09 && 
-                  this.browserInfo.baseBrowser == "safari" && this.browserInfo.version == 11)) {
+                  this.browserInfo.baseBrowser == "safari" && this.browserInfo.version >= 11)) {
 				  this.resultList["browser"].result = true;
 				  this.resultList["os"].result = true;
 		}
@@ -183,7 +189,10 @@ function CasecBrowserCheck(){
 
 function CasecCheck(){
 
-	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81','win_NT10','mac_x108','mac_x109','mac_x1011','mac_x1012','mac_x1013'];
+	var CASEC_OS_LIST = ['win_XP','win_Vista','win_7','win_8','win_81',
+	                     'win_NT10','mac_x108','mac_x109','mac_x1011',
+	                     'mac_x1012','mac_x1013','mac_x1014','mac_x1015',
+	                     'mac_x1016','mac_x1017','mac_x1018','mac_x1019','mac_x1020'];
 
 	this.resultList = new Array();
 	this.resultList["os"] = new CasecResult();
@@ -242,6 +251,15 @@ function CasecCheck(){
 	}
 	if ((this.osInfo.version == 5.1 && this.browserInfo.baseBrowser == "ie")) {
 		this.resultList["os"].result = false; //XP+IE
+		this.resultList["browser"].result = false;
+	}
+	
+	/*Removed support for VISTA os -- CJP-95*/
+	if ((this.osInfo.version == 6 && this.browserInfo.baseBrowser == "chrome")) {
+		this.resultList["os"].result = false; //VISTA+chrome
+	}
+	if ((this.osInfo.version == 6 && this.browserInfo.baseBrowser == "ie")) {
+		this.resultList["os"].result = false; //VISTA+IE
 		this.resultList["browser"].result = false;
 	}
 	
